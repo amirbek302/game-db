@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game_db</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* -------------------------------------------------------------
+------------------------------------------------------------- */
+        :root, [data-theme="light"] {
+            --bg-body: #f4f7f6;
+            --bg-card: #ffffff;
+            --text-main: #2b2d42;
+            --text-muted: #6c757d;
+            --accent: #3a86c8;
+            --border: #e2e8f0;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #121214;
+            --bg-card: #1a1a1e;
+            --text-main: #f8f9fa;
+            --text-muted: #adb5bd;
+            --accent: #4ea8de;
+            --border: #2d3748;
+        }
+        [data-theme="dark"] .card {
+            box-shadow: 0 0 12px rgb(0 119 255 / 0.5);
+        }
+        [data-theme="dark"] button {
+            box-shadow: 0 0 12px rgb(78 168 222 / 0.5);
+        }
+
+        [data-theme="cyberpunk"] {
+            --bg-body: #202438;
+            --bg-card: #2b3048;
+            --text-main: #f0f3ff;
+            --text-muted: #aeb6ce;
+            --accent: #67e8f9;
+            --border: #8273c7;
+        }
+        [data-theme="cyberpunk"] .card {
+            box-shadow: 0 0 12px rgb(255 100 214 / 0.5);
+        }
+        [data-theme="cyberpunk"] button {
+            box-shadow: 0 0 12px rgb(0 245 255 / 0.5);
+        }
+
+
+        #container{
+            width: 100%;
+            background: var(--bg-body);
+            font-family: sans-serif;
+        }
+        .wrapper{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 2% 0;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--text-main);
+        }
+
+        /* Навигация */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-body);
+            padding: 12px 35px;
+            gap: 20px;
+        }
+
+        /* Ссылки меню */
+        .nav-a {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: nowrap;
+        }
+
+        .nav-a a:hover {
+            opacity: 0.7;
+        }
+
+
+        /* Переключатели справа */
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: auto;
+        }
+
+        .nav-buttons form {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0;
+        }
+
+        .language-form {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .language-select {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .language-select:hover {
+            border-color: var(--accent);
+        }
+
+        .language-select:focus {
+            border-color: var(--accent);
+        }
+
+        .language-btn {
+            background-color: var(--accent);
+            color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .language-btn:hover {
+            opacity: 0.85;
+        }
+
+        .language-btn:active {
+            transform: scale(0.95);
+        }
+
+        .theme-picker select {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .card{
+            width: 30%;
+            background: var(--bg-card);
+            border-radius: 2%;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            color: var(--accent);
+            max-width: 400px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin: 3% 0;
+            padding: 1%;
+        }
+        .card img{
+            width: 100%;
+            border-radius: 2%;
+            margin-bottom: 5%;
+        }
+        .card p{margin: 3.5% 0}
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-a">
+        <a href="#">Home</a>
+        <a href="#">Register</a>
+        <a href="#">Login</a>
+    </div>
+    <div class="nav-buttons">
+        <form action="#" method="POST">
+            <select name="language" class="language-select">
+                <option value="en" selected>English</option>
+                <option value="uz" selected>Uzbek</option>
+                <option value="ru" selected>Russian</option>
+            </select>
+            <input type="submit" value="Change" class="language-btn">
+        </form>
+        <div class="theme-picker">
+            <select id="theme-select">
+                <option value="light">Light ☀️</option>
+                <option value="dark">Dark 🌙</option>
+                <option value="cyberpunk">Cyberpunk ⚡</option>
+            </select>
+        </div>
+    </div>
+</nav>
+    <div id="container">
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
